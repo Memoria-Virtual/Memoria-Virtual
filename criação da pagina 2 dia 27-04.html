@@ -1,0 +1,134 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Phaser - Criação do dia 27/04/2017 </title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+    game.load.image('fundo', 'Imagens/fundo.png');
+    game.load.image('quadro', 'Imagens/quadro2.png');
+    //game.load.audio("audio",'assets/musicajogo.mpeg')
+
+}
+    
+
+
+function create() {
+
+	game.add.sprite(0, 0, 'fundo');
+    game.add.sprite(250, 200, 'quadro');
+    //var bixo = game.add.sprite(300, 300, 'bixo');
+    //bixo.inputEnabled = true;
+    //bixo.input.enableDrag(true);
+   
+
+/*
+game.load.audio("audio",["C:\Users\Professor\Desktop"])
+    game.load.image('fundo', 'assets/fundomv.png');
+    game.load.image('fundo', 'assets/fundomv.png');
+
+
+}
+
+var s;
+var musica;
+function create() {
+var atari1 = game.add.sprite(300, 300, 'atari');
+
+    //  Input Enable the sprites
+    atari1.inputEnabled = true;
+
+    //  Allow dragging - the 'true' parameter will make the sprite snap to the center
+    atari1.input.enableDrag(true);
+game.add.sprite(0, 0, 'fundo');
+game.add.sprite(0, 0, 'fundo');
+fx=game.add.audio("audio");
+fx.play();
+game.input.onDown.add(remover.music,this);
+fx.addMarker('charm', 0, 2.7);                        
+makeButton('pause', 600, 380);
+
+
+
+}
+function makeButton(name, x, y) {
+
+    var button = game.add.button(x, y, 'button', click, this, 0, 1, 2);
+    button.name = name;
+    button.scale.set(2, 1.5);
+    button.smoothed = false;
+
+    var text = game.add.bitmapText(x, y + 7, 'nokia', name, 16);
+    text.x += (button.width / 2) - (text.textWidth / 2);
+                      function click(button) {
+
+    if (button.name === 'pause')
+    {
+        if (fx.paused)
+        {
+            fx.resume();
+        }
+        else
+        {
+            fx.pause();
+        }
+    }
+    else
+    {
+    	fx.play(button.name);
+    }
+
+}
+*/
+}
+
+function update() {
+}
+    /*function makeButton(name, x, y) {
+
+    var button = game.add.button(x, y, 'button', click, this, 0, 1, 2);
+    button.name = name;
+    button.scale.set(2, 1.5);
+    button.smoothed = false;
+
+    var text = game.add.bitmapText(x, y + 7, 'nokia', name, 16);
+    text.x += (button.width / 2) - (text.textWidth / 2);
+                      function click(button) {
+
+    if (button.name === 'pause')
+    {
+        if (fx.paused)
+        {
+            fx.resume();
+        }
+        else
+        {
+            fx.pause();
+        }
+    }
+    else
+    {
+    	fx.play(button.name);
+    }
+
+}
+    }
+    
+*/
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Phaser - Criação do dia 27/04/2017 </title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+    
+		<div style='position:relative; top:0px; left:0px;'>
+		
+		<div style='position:absolute; top:350px; left:550px;'>
+		</div>
+	
+</head>
+    
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+      
+}
+    
+
+        
+function create() {
+
+	game.add.sprite(0, 0, 'pginicial');
+    game.add.sprite(550, 350, 'botao');
+  
+}
+
+
+function update() {
+}
+    
+</script>
+
+</body>
+</html>
