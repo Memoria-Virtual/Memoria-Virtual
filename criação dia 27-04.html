@@ -9,10 +9,12 @@
             margin: 0;
         }
     </style>
-    
+    \\ pessoal essa div aqui eu criei pois estava com dificuldades de pular as telas, então achei mais facil fazer assim
+    \\ deixo a dispossição para receber ideias de como alterar isso dentro do game.phaser.io
 		<div style='position:relative; top:0px; left:0px;'>
 		
 		<div style='position:absolute; top:350px; left:550px;'>
+		<a href="http://localhost/Memoria%20Virtual/cria%C3%A7%C3%A3o%20da%20pagina%202%20dia%2027-04.html"><img src="Imagens/botao.png"></a>
 		</div>
 	
 </head>
@@ -24,14 +26,16 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 function preload() {
-
+\\ainda precisamos nessa tela criar (som, animação, ajuda e pontuação)
+    game.load.image('pginicial', 'Imagens/marca.png');
+    game.load.image ('botao',  'Imagens/botao.png',193, 71);
       
 }
     
 
         
 function create() {
-
+\\ainda precisamos nessa tela criar (som, animação, ajuda e pontuação)
 	game.add.sprite(0, 0, 'pginicial');
     game.add.sprite(550, 350, 'botao');
   
