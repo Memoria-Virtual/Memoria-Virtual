@@ -12,6 +12,9 @@
     <div style='position:absolute; top:000px; left:000px;'>
 		<a href="http://localhost/Memoria-Virtual/Fase4.html"><img src="Imagens/voltar.png"></a>
 		</div>
+    <div style='position:absolute; top:020px; left:350px;'>
+		<a href="http://localhost/Memoria-Virtual/PaginaInicial.html"><img src="Imagens/sair.png"></a>
+		</div>
 </head>
 <body>
 
@@ -22,27 +25,31 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
     
 function preload() {
 
+ 
    game.load.image('fundo', 'Imagens/fundo.png');
-    game.load.image('quadro', 'Imagens/quadro.png');
-    game.load.image('resposta', 'Imagens/resposta.png');
-    game.load.image('lampada', 'Imagens/lampada1.png');
-    game.load.image('rlampada', 'Imagens/rlampada.png');
-    game.load.image('rcaderno', 'Imagens/rcaderno.png');
-    game.load.image('rcadeira', 'Imagens/rcadeira.png');
+    game.load.image('quadro', 'Imagens/imagens1.png');
+    game.load.image('resposta', 'Imagens/resposta1.png');
+    game.load.image('onibus', 'Imagens/onibus.png');
+    game.load.image('ronibus', 'Imagens/onibus1.png');
+    game.load.image('rtv', 'Imagens/tv1.png');
+    game.load.image('rpipoca', 'Imagens/pipoca.png');
+    
 }
+
+  //  var result = 'Arraste varios sprite';
+
 function create() {
 
 	game.add.sprite(0, 0, 'fundo');
-    game.add.sprite(160, 100, 'quadro');
-    game.add.sprite(160, 360, 'resposta');
-    game.add.sprite(300, 120, 'lampada');
-  game.add.sprite(110, 500, 'rcaderno');
-   var rlampada1 = game.add.sprite(300, 500, 'rlampada');
-  game.add.sprite(500, 500, 'rcadeira');
+    game.add.sprite(150, 110, 'quadro');
+    game.add.sprite(160, 350, 'resposta');
+    game.add.sprite(300, 120, 'onibus');
+    var ronibus = game.add.sprite(110, 500, 'ronibus');
+    game.add.sprite(300, 500, 'rtv');
+    game.add.sprite(500, 500, 'rpipoca');
     
-    rlampada1.inputEnabled = true;
-    rlampada1.input.enableDrag(true);
-   
+    ronibus.inputEnabled = true;
+    ronibus.input.enableDrag(true);
 }  
 function render() {
 
