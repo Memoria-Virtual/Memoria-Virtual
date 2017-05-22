@@ -1,0 +1,127 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Phaser - Criação do dia 27/04/2017 </title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+    </style>
+    <div style='position:absolute; top:000px; left:680px;'>
+		<a href="http://localhost/Memoria-Virtual/Fase2.html"><img src="Imagens/avanca.png"></a>
+		</div>
+    <div style='position:absolute; top:000px; left:000px;'>
+		<a href="http://localhost/Memoria-Virtual/PaginaInicial.html"><img src="Imagens/voltar.png"></a>
+		</div>
+     <div style='position:absolute; top:020px; left:350px;'>
+		<a href="http://localhost/Memoria-Virtual/PaginaInicial.html"><img src="Imagens/sair.png"></a>
+		</div>
+<audio src="Musica\RetroVision - Puzzle [NCS Release].mp3" preload="auto" autoplay controls
+       style='position:absolute; top:570px; left:220px;'></audio> </head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, render: render });
+
+    
+function preload() {
+
+   game.load.image('fundo', 'Imagens/fundo.png');
+    game.load.image('quadro', 'Imagens/imagens1.png');
+    game.load.image('resposta', 'Imagens/resposta1.png');
+    game.load.image('lampada', 'Imagens/lampada1.png');
+    game.load.image('rlampada', 'Imagens/rslampada.png');
+    game.load.image('rcaderno', 'Imagens/caderno.png');
+    game.load.image('rcadeira', 'Imagens/cadeira.png');
+    
+}
+
+  //  var result = 'Arraste varios sprite';
+
+function create() {
+
+	game.add.sprite(0, 0, 'fundo');
+    game.add.sprite(150, 110, 'quadro');
+    game.add.sprite(160, 350, 'resposta');
+    game.add.sprite(300, 120, 'lampada');
+  game.add.sprite(110, 500, 'rcaderno');
+   var rlampada1 = game.add.sprite(300, 500, 'rlampada');
+  game.add.sprite(500, 500, 'rcadeira');
+    
+    rlampada1.inputEnabled = true;
+    rlampada1.input.enableDrag(true);
+   
+    
+    /*
+    // vou começar aqui a habilitar o grag
+    
+    var group = game.add.group();
+    
+    group.inputEnableChildren = true;
+    
+    var rlampada1 = group.create(300, 500, 'rlampada');
+    
+    rlampada1.inputEnabled = true;
+    rlampada1.input.enableDrag();
+    rlampada1.events.onDragStart.add(onDragStart, this);
+    rlampda1.events.onDragStop.add(onDragStop, this);
+    
+    var rcadern2o = group.create(110, 500, 'rcaderno');
+    
+    rcaderno2.inputEnabled = true;
+    rcaderno2.input.enableDrag();
+    rcaderno2.events.onDragStart.add(onDragStart, this);
+    rcaderno2.events.onDragStop.add(onDragStop, this);
+    
+    var rcadeira3 = group.create(500, 500, 'rcadeira');
+    
+    rcadeira3.inputEnabled = true;
+    rcadeira3.input.enableDrag();
+    rcadeira3.events.onDragStart.add(onDragStart, this);
+    rcadeira3.events.onDragStop.add(onDragStop, this);
+    
+    group.onChildInputDown.add(onDown, this);
+
+
+     //  This returns an array of all the image keys in the cache
+
+
+    //  Now let's create some random sprites and enable them all for drag and 'bring to top'
+}
+
+function onDown(sprite, pointer) {
+
+    result = "Down" + sprite.key;
+
+    console.log('down', sprite.key);
+}
+    
+function onDragStart(sprite, pointer) {
+
+    result = "Dragging" + sprite.key;
+
+}
+    
+    function onDragStop(sprite, pointer) {
+
+    result = sprite.key + "dropped at x:" + pointer.x + " y: " + pointer.y;
+
+    if (pointer.y > 500)
+    {
+        console.log('input disabled on', sprite.key);
+        sprite.input.enabled = false;
+        sprite.sendToBack();
+    }
+    */
+}  
+function render() {
+
+    //game.debug.text(result, 10, 20);
+
+}
+
+    
+</script>
+
+</body>
+</html>
