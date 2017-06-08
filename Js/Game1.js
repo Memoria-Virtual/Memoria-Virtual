@@ -1,30 +1,75 @@
+var text;
+var contador;
 
-var Game1={
+var Stage0 = function() {};
 
-function preload() {
-    game.load.image('fundo', 'Imagens/fundo.png');
-    game.load.image('quadro', 'Imagens/imagens1.png');
-    game.load.image('resposta', 'Imagens/resposta1.png');
-    game.load.image('lampada', 'Imagens/lampada1.png');
-    game.load.image('rlampada', 'Imagens/rslampada.png');
-    game.load.image('rcaderno', 'Imagens/caderno.png');
-    game.load.image('rcadeira', 'Imagens/cadeira.png');
-}
+Stage0.prototype = {
 
-function create() {
+    preload: function () {
+        game.load.image('fundo', 'Imagens/fundo.png');
+        game.load.image('quadro', 'Imagens/imagens1.png');
+        game.load.image('resposta', 'Imagens/resposta1.png');
+        game.load.image('lampada', 'Imagens/lampada1.png');
+        game.load.image('rlampada', 'Imagens/rslampada.png');
+        game.load.image('rcaderno', 'Imagens/caderno.png');
+        game.load.image('rcadeira', 'Imagens/cadeira.png');
+    },
 
-	game.add.sprite(0, 0, 'fundo');
-    game.add.sprite(150, 110, 'quadro');
-    game.add.sprite(160, 350, 'resposta');
-    game.add.sprite(300, 120, 'lampada');
-    game.add.sprite(110, 500, 'rcaderno');
-        var rlampada1 = game.add.sprite(300, 500, 'rlampada');
-    game.add.sprite(500, 500, 'rcadeira');
-      
-        rlampada1.inputEnabled = true;
-        rlampada1.input.enableDrag(true);
-   
-}  
-function render() {
-}
+    create: function () {
+
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        
+        game.add.sprite(0, 0, 'fundo');
+        game.add.sprite(150, 110, 'quadro');
+        game.add.sprite(160, 350, 'resposta');
+        game.add.sprite(300, 120, 'lampada');
+        game.add.sprite(110, 500, 'rcaderno');
+        game.add.sprite(500, 500, 'rcadeira');
+        game.add.sprite(300, 500, 'rlampada');
+        
+        
+        
+        this.rlampada = this.game.add.sprite(this.game.world.centerX, this.game.world.height, 'rlampada');
+        this.rlampada.anchor.setTo(0.5, 1);
+        this.game.physics.arcade.enable(this.rlampada);
+        this.rlampada.tint=0xff0ff;
+        
+        this.rlampadaCopy = this.game.add.sprite(this.game.world.centerX, 0, this.rlampada.key, this.rlampada.frame);
+        this.rlampadaCopy.anchor.x = 0.5;
+        this.game.physics.arcade.enable(this.rlampadaCopy);
+        this.rlampadaCopy.inputEnabled = true;
+        this.rlampadaCopy.imput.enableDrag();
+        this.rlampadaCopy.originalPosition = this.rlampadaCopy.position.clone();
+        this.rlampadaCopy.events.onDragStop.add(function(currentSprite){
+            this.stopDrag(currentSprite, this.rlampada);
+        }this);
+        
+    },
+    
+    StopDrag: function(currentSprite, endSprite){
+        if (!this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
+            currentSprite.input.draggable = false;
+            currentSprite.position.copyFrom(endSprite.position);
+            currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y);
+        })) {currentSprite.position.copyFrom(currentSprite.originalPosition);
+            }
+        }
+        
+        text = game.add.text(0, 0, "Cronometro: ");     
+        contador = 30;
+        game.time.events.loop(Phaser.Timer.SECOND, this.mostraTempo, this);
+    
+    },
+    
+    mostraTempo: function () {
+        contador--;
+        text.setText('Cronometro: ' + contador);
+        if (contador == 0) {
+            
+        }
+    },
+    
+    update: function () {
+
+    }
 }

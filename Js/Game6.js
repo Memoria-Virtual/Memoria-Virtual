@@ -1,14 +1,15 @@
-var Game6{
-    
+var Stage5 = function() {};
 
-function preload() {
+Stage5.prototype = {
+
+    preload: function () {
     game.load.image('fundo', 'Imagens/fundo.png');
     game.load.image('fim', 'Imagens/fim1fase.png');
 }
-function create() {
+    create: function () {
 	game.add.sprite(0, 0, 'fundo');
     game.add.sprite(160, 100, 'fim');   
 }  
-function render() {
+    update: function () {
 }
 }

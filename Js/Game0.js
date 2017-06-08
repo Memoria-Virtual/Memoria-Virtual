@@ -1,26 +1,27 @@
+var Game0 = function() {};
 
-var game{
+Game0.prototype = {
     
-    function preload() {
+    preload: function() {
         
         game.load.image('pginicial', 'Imagens/marca.png');
-        game.load.image ('botao',  'Imagens/botao.png',193, 71);  
+        game.load.image ('botao',  'Imagens/botao.png');  
         
     }, 
         
-    function create() {
+    create: function() {
         
         game.add.sprite(0, 0, 'pginicial');
-        game.add.sprite(150, 110, 'botao');
-        this.playButton = this.game.add.button(this.world.centerX, this.world.centerY, 'botao', this.playTheGame, this);
+        this.playButton = this.game.add.button(200,100, 'botao', this.playTheGame, this);
         
     },
         
-    function update() {
+    update: function() {
         
     },
+    
     playTheGame: function (button) {
-        game.state.start("Game");
+        game.state.start("Fase 1");
         
     }
     
